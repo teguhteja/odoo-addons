@@ -31,3 +31,12 @@ class OdooDiscussions(http.Controller):
             "courses": courses
         }
         return request.render('od_openacademy_website.odoodiscussions_classes3', values)
+    
+    @http.route('/odoodiscussions/classes4', auth='public', website=True)
+    def odoodiscussions_classes(self, **kwargs):
+        courses = request.env['od_openacademy.course'].search([])
+        values = {
+            "message": "Hello Odoo Discussions 4",
+            "courses": courses
+        }
+        return request.render('od_openacademy_website.odoodiscussions_classes4', values)

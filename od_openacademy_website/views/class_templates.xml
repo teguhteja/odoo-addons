@@ -12,18 +12,36 @@
 
     <template id="odoodiscussions_classes2" name="Odoo Discussions Classes 2">
         <title>Odoo Discussions</title>
-        <h2><span t-esc="message"/></h2>
+        <h2>
+            <span t-esc="message" />
+        </h2>
     </template>
-    
+
     <template id="odoodiscussions_classes3" name="Odoo Discussions Classes 3">
         <title>Odoo Discussions</title>
-        
-        <h2><span t-esc="message"/></h2>
+
+        <h2>
+            <span t-esc="message" />
+        </h2>
 
         <ul>
             <t t-foreach="courses" t-as="course">
-                <li>[<span t-esc="course.code"/>] <span t-esc="course.name"/></li>
+                <li>[<span t-esc="course.code" />] <span t-esc="course.name" /></li>
             </t>
         </ul>
+    </template>
+
+    <template id="odoodiscussions_classes4" name="Odoo Discussions Classes 4">
+        <t t-call="website.layout">
+            <title>Odoo Discussions</title>
+            <h2>
+                <span t-esc="message" />
+            </h2>
+            <ul>
+                <t t-foreach="courses" t-as="course">
+                    <li>[<span t-esc="course.code" />] <span t-esc="course.name" /></li>
+                </t>
+            </ul>
+        </t>
     </template>
 </odoo>
