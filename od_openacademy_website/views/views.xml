@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="od_openacademy_website.list">
+      <field name="name">od_openacademy_website list</field>
+      <field name="model">od_openacademy_website.od_openacademy_website</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="od_openacademy_website.action_window">
+      <field name="name">od_openacademy_website window</field>
+      <field name="res_model">od_openacademy_website.od_openacademy_website</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="od_openacademy_website.action_server">
+      <field name="name">od_openacademy_website server</field>
+      <field name="model_id" ref="model_od_openacademy_website_od_openacademy_website"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="od_openacademy_website" id="od_openacademy_website.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="od_openacademy_website.menu_1" parent="od_openacademy_website.menu_root"/>
+    <menuitem name="Menu 2" id="od_openacademy_website.menu_2" parent="od_openacademy_website.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="od_openacademy_website.menu_1_list" parent="od_openacademy_website.menu_1"
+              action="od_openacademy_website.action_window"/>
+    <menuitem name="Server to list" id="od_openacademy_website" parent="od_openacademy_website.menu_2"
+              action="od_openacademy_website.action_server"/>
+-->
+  </data>
+</odoo>
