@@ -25,6 +25,8 @@ Long description of module's purpose
         'security/ir.model.access.csv',
         'views/course_views.xml',
         'views/class_templates.xml',
+        'views/website_pages.xml',
+        'views/website_menus.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
