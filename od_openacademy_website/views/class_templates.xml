@@ -44,4 +44,18 @@
             </ul>
         </t>
     </template>
+
+    <template id="odoodiscussions_classes5" name="Odoo Discussions Classes 5">
+        <t t-call="website.layout">
+            <title>Odoo Discussions</title>
+            <h2>
+                <span t-esc="message" />
+            </h2>
+            <ul>
+                <t t-foreach="courses" t-as="course">
+                    <li>[<span t-esc="course.code" />] <span t-field="course.name" /></li>
+                </t>
+            </ul>
+        </t>
+    </template>
 </odoo>
