@@ -1,4 +1,8 @@
-Here is the extracted text from the Odoo website controller in the image:
+1
+- create usings scaffold od_openacademy_website
+- edit manifest
+
+- Here is the extracted text from the Odoo website controller in the image:
 
 ```python
 from odoo import http

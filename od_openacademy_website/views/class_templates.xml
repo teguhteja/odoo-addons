@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="odoodiscussions_classes" name="Odoo discussions Classes">
+        <title>Odoo discussions</title>
+        <h3>Classes</h3>
+        <ul>
+            <li>Math</li>
+            <li>English</li>
+            <li>Programming</li>
+        </ul>
+    </template>
+</odoo>
