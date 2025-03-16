@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="odoodiscussions_classes" name="Odoo discussions Classes">
+    <template id="odoodiscussions_classes1" name="Odoo discussions Classes 1">
         <title>Odoo discussions</title>
         <h3>Classes</h3>
         <ul>
             <li>Math</li>
             <li>English</li>
             <li>Programming</li>
+        </ul>
+    </template>
+
+    <template id="odoodiscussions_classes2" name="Odoo Discussions Classes 2">
+        <title>Odoo Discussions</title>
+        <h2><span t-esc="message"/></h2>
+    </template>
+    
+    <template id="odoodiscussions_classes3" name="Odoo Discussions Classes 3">
+        <title>Odoo Discussions</title>
+        
+        <h2><span t-esc="message"/></h2>
+
+        <ul>
+            <t t-foreach="courses" t-as="course">
+                <li>[<span t-esc="course.code"/>] <span t-esc="course.name"/></li>
+            </t>
         </ul>
     </template>
 </odoo>

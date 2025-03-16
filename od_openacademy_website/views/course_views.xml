@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_openacademy_course" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">od_openacademy.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first course</p>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_course_tree" model="ir.ui.view">
+        <field name="name">od.openacademy.course.tree</field>
+        <field name="model">od_openacademy.course</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="name"/>
+                <field name="state"/>
+                <field name="course_date"/>
+                <field name="responsible_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_course_form" model="ir.ui.view">
+        <field name="name">od.openacademy.course.form</field>
+        <field name="model">od_openacademy.course</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="description"/>
+                        <field name="course_date"/>
+                        <field name="responsible_id"/>
+                        <field name="state"/>
+                        <field name="company_id"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
+                    </group>
+                    <notebook>
+                        <page string="Sessions">
+                            <field name="session_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="start_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu and Action -->
+    <menuitem id="menu_openacademy_root" name="OpenAcademy" sequence="1"/>
+    
+    <menuitem id="menu_openacademy_courses" name="Courses"
+              parent="menu_openacademy_root" action="action_openacademy_course"/>
+</odoo>

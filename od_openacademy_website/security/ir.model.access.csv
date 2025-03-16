@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_od_openacademy_website_od_openacademy_website,od_openacademy_website.od_openacademy_website,model_od_openacademy_website_od_openacademy_website,base.group_user,1,1,1,1
+access_od_openacademy_course,access_od_openacademy_course,model_od_openacademy_course,base.group_user,1,1,1,1
+access_od_openacademy_session,access_od_openacademy_session,od_openacademy_website.model_od_openacademy_session,base.group_user,1,1,1,1
+access_openacademy_course_tag,access_openacademy_course_tag,od_openacademy_website.model_openacademy_course_tag,base.group_user,1,1,1,1
