@@ -58,4 +58,39 @@
             </ul>
         </t>
     </template>
+
+    <template id="odoodiscussions_classes7" name="Odoo Discussions Classes7">
+        <t t-call="website.layout">
+            <title>Odoo Discussions</title>
+            <h2>
+                <span t-esc="message" />
+            </h2>
+            <ul>
+                <t t-foreach="courses" t-as="course">
+                    <li>
+                        <a t-attf-href="/odoodiscussions/{{ slug(course) }}">
+                            <t t-esc="course.code" />
+                        </a>
+                        <span t-field="course.name" />
+                    </li>
+                </t>
+            </ul>
+        </t>
+    </template>
+
+    <template id="odoodiscussions_courses" name="Odoo Discussions Courses">
+        <t t-call="website.layout">
+            <title>Odoo Discussions</title>
+            <h2>
+                <span t-esc="course.name" />
+            </h2>
+            <h2>
+                <span t-esc="course.description" />
+            </h2>
+            <h2>
+                <span t-esc="course.responsible_id.name" />
+            </h2>
+        </t>
+    </template>
+
 </odoo>

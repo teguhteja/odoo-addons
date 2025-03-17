@@ -49,3 +49,26 @@ class OdooDiscussions(http.Controller):
             "courses": courses
         }
         return request.render('od_openacademy_website.odoodiscussions_classes5', values)
+    
+    @http.route('/odoodiscussions/<string:name>', auth='public', website=True, type='http')  
+    def display_name(self, name):
+        return "This is Odoo Discussions with Name: %s" % name
+    
+    @http.route('/odoodiscussions/<int:my_id>', auth='public', website=True, type='http')  
+    def display_id(self, my_id):
+        return "This is Odoo Discussions with ID: %s" % my_id
+
+    @http.route('/odoodiscussions/classes7', auth='public', website=True, type='http')
+    def odoodiscussions_classes(self, **kwargs):
+        courses = request.env['od_openacademy.course'].sudo().search([])
+        values = {
+            "message": "Hello Odoo Discussions 5",
+            "courses": courses
+        }
+        return request.render('od_openacademy_website.odoodiscussions_classes7', values)
+
+    @http.route("/odoodiscussions/<model('od_openacademy.course'):course>", 
+                auth='public', website=True, type='http')
+    def display_name(self, course):
+        template = "od_openacademy_website.odoodiscussions_courses"
+        return request.render(template, {'course': course})
