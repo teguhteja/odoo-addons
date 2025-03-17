@@ -92,5 +92,26 @@
             </h2>
         </t>
     </template>
-
+    
+    <template id="portal_my_home_classes" name="Classes" customize_show="True" inherit_id="portal.portal_my_home">
+    <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <t t-call="portal.portal_docs_entry">
+            <t t-set="title">Classes</t>
+            <t t-set="url" t-value="'/my/quotes'"/>
+            <t t-set="placeholder_count" t-value="'quotation_count'"/>
+        </t>
+    </xpath>
+</template>
+    <template id="portal_my_home_classws" name="Classes" inherit_id="portal.portal_my_home"
+        customize_show="True" priority="60">
+        <div id="portal_client_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Classes</t>
+                <t t-set="url">/odoodiscussions/classes7</t>
+                <t t-set="text">View your class</t>
+                <t t-set="placeholder_count">1</t>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </div>
+    </template>
 </odoo>
