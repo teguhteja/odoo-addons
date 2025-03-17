@@ -1,6 +1,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
+
 class Course(models.Model):
     _name = 'od_openacademy.course'
     _inherit = ['mail.thread', 'mail.activity.mixin']

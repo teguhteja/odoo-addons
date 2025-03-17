@@ -109,7 +109,8 @@
                 <t t-set="title">Classes</t>
                 <t t-set="url">/odoodiscussions/classes7</t>
                 <t t-set="text">View your class</t>
-                <t t-set="placeholder_count">1</t>
+                <!-- <t t-set="placeholder_count">1</t> -->
+                <t t-set="placeholder_count" t-value="'course_count'"/>
                 <t t-set="config_card" t-value="True"/>
             </t>
         </div>

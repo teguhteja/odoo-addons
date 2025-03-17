@@ -1,5 +1,6 @@
 from odoo import http
 from odoo.http import request
+from odoo.addons.portal.controllers.portal import CustomerPortal
 
 class OdooDiscussions(http.Controller):
 
@@ -72,3 +73,11 @@ class OdooDiscussions(http.Controller):
     def display_name(self, course):
         template = "od_openacademy_website.odoodiscussions_courses"
         return request.render(template, {'course': course})
+    
+    
+class CustomerPortalDiscussions(CustomerPortal):
+
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        values['course_count'] = request.env['od_openacademy.course'].search_count([])
+        return values
