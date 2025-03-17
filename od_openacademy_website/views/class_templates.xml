@@ -78,7 +78,7 @@
         </t>
     </template>
 
-    <template id="odoodiscussions_courses" name="Odoo Discussions Courses">
+    <template id="odoodiscussions_courses0" name="Odoo Discussions Courses">
         <t t-call="website.layout">
             <title>Odoo Discussions</title>
             <h2>
@@ -103,23 +103,10 @@
             </t>
         </xpath>
     </template>
-    <template id="portal_my_home_classes" name="Classes" inherit_id="portal.portal_my_home"
-        customize_show="True" priority="60">
-        <div id="portal_client_category" position="inside">
-            <t t-call="portal.portal_docs_entry">
-                <t t-set="title">Classes</t>
-                <t t-set="url">/odoodiscussions/classes10</t>
-                <t t-set="text">View your class</t>
-                <!-- <t t-set="placeholder_count">1</t> -->
-                <t t-set="placeholder_count" t-value="'course_count'" />
 
-                <t t-set="config_card" t-value="True" />
-            </t>
-        </div>
-    </template>
     <template id="portal_my_classes" name="My Classes">
         <t t-call="portal.portal_layout">
-            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
 
             <t t-call="portal.portal_searchbar">
                 <t t-set="title">Classes</t>
@@ -157,4 +144,47 @@
             <p t-else="">There are currently no courses for your account.</p>
         </t>
     </template>
+    <template id="odoodiscussions_courses" name="My Course" inherit_id="portal.portal_sidebar"
+        primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <title>Odoo Discussions</title>
+            <h2>
+                <span t-esc="course.name" />
+            </h2>
+            <h2>
+                <span t-esc="course.code" />
+            </h2>
+            <h2>
+                <span t-esc="course.responsible_id.name" />
+            </h2>
+        </xpath>
+    </template>
+    <template id="portal_my_home_menu_course" name="Portal layout: openacademy menu entries"
+        inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'course'"
+                t-attf-class="breadcrumb-item #{'active ' if not course else ''}">
+                <a t-if="course" t-attf-href="/odoodiscussions/classes?{{ keep_query() }}">
+                    Courses
+                </a>
+                <t t-else="">Courses</t>
+            </li>
+            <li t-if="course" class="breadcrumb-item active">
+                <t t-out="course.name" />
+            </li>
+        </xpath>
+    </template>
+    <template id="portal_my_home_classes" name="Classes" inherit_id="portal.portal_my_home"
+        customize_show="True" priority="60">
+        <div id="portal_client_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Classes</t>
+                <t t-set="url">/odoodiscussions/classes10</t>
+                <t t-set="text">View your class</t>
+                <t t-set="placeholder_count" t-value="'course_count'" />
+                <t t-set="config_card" t-value="True" />
+            </t>
+        </div>
+    </template>
+
 </odoo>
