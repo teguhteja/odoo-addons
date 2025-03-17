@@ -92,27 +92,69 @@
             </h2>
         </t>
     </template>
-    
-    <template id="portal_my_home_classes" name="Classes" customize_show="True" inherit_id="portal.portal_my_home">
-    <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-        <t t-call="portal.portal_docs_entry">
-            <t t-set="title">Classes</t>
-            <t t-set="url" t-value="'/my/quotes'"/>
-            <t t-set="placeholder_count" t-value="'quotation_count'"/>
-        </t>
-    </xpath>
-</template>
-    <template id="portal_my_home_classws" name="Classes" inherit_id="portal.portal_my_home"
+
+    <template id="portal_my_home_classes1" name="Classes" customize_show="True"
+        inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Classes</t>
+                <t t-set="url" t-value="'/my/quotes'" />
+                <t t-set="placeholder_count" t-value="'quotation_count'" />
+            </t>
+        </xpath>
+    </template>
+    <template id="portal_my_home_classes" name="Classes" inherit_id="portal.portal_my_home"
         customize_show="True" priority="60">
         <div id="portal_client_category" position="inside">
             <t t-call="portal.portal_docs_entry">
                 <t t-set="title">Classes</t>
-                <t t-set="url">/odoodiscussions/classes7</t>
+                <t t-set="url">/odoodiscussions/classes10</t>
                 <t t-set="text">View your class</t>
                 <!-- <t t-set="placeholder_count">1</t> -->
-                <t t-set="placeholder_count" t-value="'course_count'"/>
-                <t t-set="config_card" t-value="True"/>
+                <t t-set="placeholder_count" t-value="'course_count'" />
+
+                <t t-set="config_card" t-value="True" />
             </t>
         </div>
+    </template>
+    <template id="portal_my_classes" name="My Classes">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Classes</t>
+            </t>
+
+            <t t-if="courses" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Course #</th>
+                        <th class="text-end">Course Name</th>
+                        <th class="text-end">Course Date</th>
+                        <th class="text-end">Status</th>
+                    </tr>
+                </thead>
+                <t t-foreach="courses" t-as="course">
+                    <tr>
+                        <td>
+                            <a t-attf-href="/odoodiscussions/{{ slug(course) }}">
+                                <t t-esc="course.code" />
+                            </a>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="course.name" />
+                        </td>
+                        <td class="text-end">
+                            <span t-field="course.course_date" />
+                        </td>
+                        <td class="text-end">
+                            <span t-field="course.state" />
+                        </td>
+                    </tr>
+                </t>
+            </t>
+
+            <p t-else="">There are currently no courses for your account.</p>
+        </t>
     </template>
 </odoo>
